@@ -1,4 +1,4 @@
-from player import Player
+from game import Game
 from words import Words
 
 words = Words()
@@ -11,7 +11,10 @@ def main():
 def new_game():
     words.select_word()
     words.print_word()
-    player = Player(get_player())
+    player = get_player()
+    game = Game()
+    game.player.name = player
+    game.player_guess()
 
 
 def get_player():
@@ -20,6 +23,7 @@ def get_player():
     name = input("Please enter your player name\n")
 
     # error validation
+    # if the user enters a player name that doesn't contain only letters, they will be prompted to try again
     while True:
 
         if name.isalpha():
