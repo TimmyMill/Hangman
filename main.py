@@ -1,10 +1,9 @@
-import word
+from words import Words
 
 
 def main():
-    # file = open("word_list.txt", 'r')
-    # newWord.read_file(file)
-
-    # file.close()
+    words = Words()
+    words.select_word()
+    words.print_word()
 
 main()
