@@ -21,11 +21,18 @@ class Words:
 
         return self.wordlist
 
-    def select_word(self):
-        self.read_file()
-        wordlist = self.wordlist
-        random.shuffle(wordlist)
+    def create_wordlist(self):
+        if len(self.wordlist) > 0:
+            pass
 
+        else:
+            self.read_file()
+            wordlist = self.wordlist
+            random.shuffle(wordlist)
+
+    def select_word(self):
+        self.create_wordlist()
+        wordlist = self.wordlist
         return wordlist[0]
 
     def print_word(self):
