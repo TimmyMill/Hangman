@@ -5,6 +5,13 @@ class Player:
         self.guess_count = 7
         self.guess_list = []
 
-    #def guess(self, guess_count):
+    def player_guess(self):
+        guess = input("Please guess a letter\n")
 
-
+        while True:
+            if guess.isalpha() and len(guess) == 1:
+                self.guess_list.insert(0, guess)
+                break
+            else:
+                print("Please try again")
+                guess = input("Please guess a letter\n")
