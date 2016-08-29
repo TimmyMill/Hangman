@@ -1,7 +1,4 @@
 from game import Game
-from words import Words
-
-words = Words()
 
 
 def main():
@@ -9,12 +6,10 @@ def main():
 
 
 def new_game():
-    words.select_word()
-    words.print_word()
-    
     # create a game object
     game = Game()
-
+    game.get_player_name()
+    game.run_game()
 
 
 main()

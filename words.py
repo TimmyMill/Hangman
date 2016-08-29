@@ -8,14 +8,17 @@ class Words:
 
     def read_file(self):
 
-        file = open("word_list.txt", 'r')
+        # opens a text file using "read mode"
+        file = open("word_list.txt", 'rt')
 
+        # reads in each line from the text file
         while True:
             inline = file.readline()
-            if inline == '':
+            if inline == '':  # loops until there are no more lines to read
                 break
+
             else:
-                self.wordlist.append(inline)
+                self.wordlist.append(inline)  # adds each line to the end of our word list
 
         file.close()
 
