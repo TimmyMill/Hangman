@@ -8,6 +8,7 @@ class Game:
         self.player = Player('')
         self.words = Words()
         self.word = ''
+        self.new_player = True
 
     # prompts the user to enter a name for their player
     def get_player_name(self):
@@ -53,25 +54,6 @@ class Game:
             self.player.guess_count -= 1
             print(self.player.guess_count)
 
-            # if guess_count == 0:
-            #     self.game_over()
-
-    def game_over(self):
-        print("I'm sorry, it looks like you're all out of guesses")
-        response = input("Would you like to play again? (y/n)\n").capitalize()  # capitalize to make validation easier
-
-        # error validation
-        # while response != 'Y' or response != 'N':
-        while True:
-            # if the user doesn't enter "y" or "n", this will loop until they do
-            if response == 'Y':
-                break
-            elif response == 'N':
-                print("Thanks for playing!")
-                break
-            else:
-                response = input("Would you like to play again? (y/n)\n").capitalize()
-
     def run_game(self):
         self.start_game()
 
@@ -83,3 +65,29 @@ class Game:
 
             else:
                 self.player_turn()
+
+    def game_over(self):
+        print("I'm sorry, it looks like you're all out of guesses")
+        response = input("Would you like to play again? (y/n)\n").capitalize()  # capitalize to make validation easier
+
+        # error validation
+        # while response != 'Y' or response != 'N':
+        while True:
+
+            # if the user doesn't enter "y" or "n", this will loop until they do
+            if response == 'Y':
+                self.reload()  # method call to reset the game
+                break
+
+            elif response == 'N':
+                print("Thanks for playing!")
+                break
+
+            else:
+                response = input("Would you like to play again? (y/n)\n").capitalize()
+
+    # resets the game if the user would like to play again
+    def reload(self):
+        self.player.guess_count = 7  # resets guess count
+        del self.words.wordlist[0]   # removes the word that was just used
+        self.run_game()

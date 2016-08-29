@@ -25,16 +25,15 @@ class Words:
         return self.wordlist
 
     def create_wordlist(self):
+        # if the list's length is 0, we need to populate it
         if len(self.wordlist) == 0:
 
             self.read_file()
-            wordlist = self.wordlist
-            random.shuffle(wordlist)
+            random.shuffle(self.wordlist)
 
     def select_word(self):
         self.create_wordlist()
-        wordlist = self.wordlist
-        return wordlist[0]
+        return self.wordlist[0]
 
     def print_word(self):
         word = self.select_word()

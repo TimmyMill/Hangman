@@ -8,7 +8,10 @@ def main():
 def new_game():
     # create a game object
     game = Game()
-    game.get_player_name()
+
+    if game.new_player:
+        game.get_player_name()
+
     game.run_game()
 
 
