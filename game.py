@@ -53,7 +53,7 @@ class Game:
             guess_count = self.player.guess_count
             guess_count -= 1
             print(guess_count)
-             
+
             # if guess_count == 0:
             #     self.game_over()
 
@@ -75,9 +75,10 @@ class Game:
         self.start_game()
 
         while True:
-            self.player_turn()
+
             if self.player.guess_count == 0:
                 self.game_over()
                 break
+
             else:
                 self.player_turn()

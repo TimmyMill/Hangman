@@ -25,10 +25,8 @@ class Words:
         return self.wordlist
 
     def create_wordlist(self):
-        if len(self.wordlist) > 0:
-            pass
+        if len(self.wordlist) == 0:
 
-        else:
             self.read_file()
             wordlist = self.wordlist
             random.shuffle(wordlist)
