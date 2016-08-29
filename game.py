@@ -50,9 +50,8 @@ class Game:
         else:
             print("I'm sorry, there are no " + guess + "'s")
             # print("You guessed " + guess)
-            guess_count = self.player.guess_count
-            guess_count -= 1
-            print(guess_count)
+            self.player.guess_count -= 1
+            print(self.player.guess_count)
 
             # if guess_count == 0:
             #     self.game_over()
@@ -62,14 +61,16 @@ class Game:
         response = input("Would you like to play again? (y/n)\n").capitalize()  # capitalize to make validation easier
 
         # error validation
-        while response != 'Y' or response != 'N':
+        # while response != 'Y' or response != 'N':
+        while True:
             # if the user doesn't enter "y" or "n", this will loop until they do
-            response = input("Would you like to play again? (y/n)\n").capitalize()
-
-        if response == 'Y':
-            pass
-        if response == 'N':
-            print("Thanks for playing!")
+            if response == 'Y':
+                break
+            elif response == 'N':
+                print("Thanks for playing!")
+                break
+            else:
+                response = input("Would you like to play again? (y/n)\n").capitalize()
 
     def run_game(self):
         self.start_game()
